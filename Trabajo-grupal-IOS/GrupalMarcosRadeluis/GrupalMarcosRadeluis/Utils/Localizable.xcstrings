@@ -1,0 +1,468 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%.2f" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.2f"
+          }
+        }
+      }
+    },
+    "%.2f km" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.2f km"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "Age" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edad"
+          }
+        }
+      }
+    },
+    "Alert sound:" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido de alerta"
+          }
+        }
+      }
+    },
+    "Calories (kcal)" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calorías (kcal)"
+          }
+        }
+      }
+    },
+    "Check Trainings" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenamientos"
+          }
+        }
+      }
+    },
+    "Choose your training" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige tu entrenamiento"
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
+    "Data saved successfully" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datos guardados correctamente"
+          }
+        }
+      }
+    },
+    "Distance (km)" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distancia (km)"
+          }
+        }
+      }
+    },
+    "Do you wish to end the training?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres finalizar el entrenamiento?"
+          }
+        }
+      }
+    },
+    "Email" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
+    },
+    "End training?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Finalizar entrenamiento?"
+          }
+        }
+      }
+    },
+    "Enter your age" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu edad"
+          }
+        }
+      }
+    },
+    "Enter your email" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu email"
+          }
+        }
+      }
+    },
+    "Enter your name" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu nombre"
+          }
+        }
+      }
+    },
+    "Enter your weight" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu peso"
+          }
+        }
+      }
+    },
+    "Fitness App" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitness App"
+          }
+        }
+      }
+    },
+    "Heart rate (bpm)" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ritmo cardiaco (bpm)"
+          }
+        }
+      }
+    },
+    "Heavy Training" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenamiento Fuerte"
+          }
+        }
+      }
+    },
+    "Intensity" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intensidad"
+          }
+        }
+      }
+    },
+    "Light Training" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenamiento Ligero"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Oop!" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Ups!"
+          }
+        }
+      }
+    },
+    "Pause" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausar"
+          }
+        }
+      }
+    },
+    "Play" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Correr"
+          }
+        }
+      }
+    },
+    "Profile" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
+          }
+        }
+      }
+    },
+    "Sign Up" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registro"
+          }
+        }
+      }
+    },
+    "Speed (km/h)" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velocidad (km/h)"
+          }
+        }
+      }
+    },
+    "Start Training" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenar"
+          }
+        }
+      }
+    },
+    "Steps" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasos"
+          }
+        }
+      }
+    },
+    "Stop" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fin"
+          }
+        }
+      }
+    },
+    "There are no trainings" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay entrenamientos"
+          }
+        }
+      }
+    },
+    "There was an error saving" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubo un error al guardar"
+          }
+        }
+      }
+    },
+    "There was an error saving data" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubo un error al guardar los datos"
+          }
+        }
+      }
+    },
+    "Time" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo"
+          }
+        }
+      }
+    },
+    "Training" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenamiento"
+          }
+        }
+      }
+    },
+    "Training route" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruta del entrenamiento"
+          }
+        }
+      }
+    },
+    "Training Type" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo de Entrenamiento"
+          }
+        }
+      }
+    },
+    "Trainings" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenamientos"
+          }
+        }
+      }
+    },
+    "Weight" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peso"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
