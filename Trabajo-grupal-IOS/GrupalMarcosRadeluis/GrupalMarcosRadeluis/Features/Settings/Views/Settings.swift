@@ -18,7 +18,7 @@ struct Settings: View {
     @State private var didError = false
     @State private var playSound = false
     
-    private var settings = UserDefaultsUtils.appSettings
+    private var localPersistence = LocalPersistenceService.shared
     
     var body: some View {
         ZStack{
@@ -33,16 +33,14 @@ struct Settings: View {
                 .onChange(of: selectedSound) {
                     if let soundID = selectedSound?.id {
                         if playSound {
-                            let oldSoundId = settings?.alertSoundId
-                            settings?.alertSoundId = soundID
-                            let isSaved = UserDefaultsUtils.saveSettings(settings!)
+                            let oldSoundId = localPersistence.appSettings?.alertSoundId
                             
-                            if (isSaved) {
-                                AudioServicesPlayAlertSound( UInt32(soundID) )
-                            }else{
+                            do {
+                                try localPersistence.saveAppSettings(alertSoundId: Int16(soundID))
+                                AudioServicesPlayAlertSound(SystemSoundID(soundID))
+                            } catch {
                                 didError = true
-                                selectedSound = sounds
-                                    .first( where:{ $0.id == oldSoundId } )
+                                selectedSound = sounds.first( where:{ $0.id == oldSoundId ?? 1005 } )
                             }
                         }
                         playSound = true
@@ -61,7 +59,7 @@ struct Settings: View {
         }
         .onAppear{
             playSound = false
-            self.selectedSound = sounds.first( where: {$0.id == self.settings?.alertSoundId})
+            self.selectedSound = sounds.first( where: {$0.id == localPersistence.appSettings?.alertSoundId ?? 1005})
         }
     }
 }
