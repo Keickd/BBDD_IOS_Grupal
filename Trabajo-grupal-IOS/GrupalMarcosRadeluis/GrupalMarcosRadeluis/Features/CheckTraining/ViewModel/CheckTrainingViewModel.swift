@@ -12,11 +12,11 @@ struct CheckTrainingViewModel {
     var idTraining: UUID
     var training: Training?
     
+    private var localPersistence = LocalPersistenceService.shared
+    
     init(idTraining: UUID) {
         self.idTraining = idTraining
-        self.training = UserDefaultsUtils.user?.trainings.first(where: { Training in
-            Training.id == idTraining
-        })
+        self.training = localPersistence.getTrainingByID(id: idTraining)
     }
 }
 
