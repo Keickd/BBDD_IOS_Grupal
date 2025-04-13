@@ -115,7 +115,7 @@ struct StartTraining: View {
                             if isTimerActive {
                                 calories = Int(
                                     startTrainingViewModel.heartRateSimulator.calculateCalories(
-                                        weight: UserDefaultsUtils.user != nil ? UserDefaultsUtils.user!.weight : 70,
+                                        weight: StartTrainingViewModel.user != nil ? UserDefaultsUtils.user!.weight : 70,
                                         elapsedTime: TimeInterval(
                                             1
                                         )
@@ -244,7 +244,7 @@ struct StartTraining: View {
     }
     
     func emitSound() {
-        if let soundId = UserDefaultsUtils.appSettings?.alertSoundId {
+        if let soundId = startTrainingViewModel.appSetting?.alertSoundId {
             AudioServicesPlayAlertSound(UInt32(soundId))
         }
         
