@@ -15,7 +15,7 @@ class StartTrainingViewModel {
     var trainingType: TrainingType
     
     private let localPersistenceService = LocalPersistenceService.shared
-    private let user: User?
+    let user: User?
     let appSetting: AppSettings?
 
     init(trainingType: TrainingType) {

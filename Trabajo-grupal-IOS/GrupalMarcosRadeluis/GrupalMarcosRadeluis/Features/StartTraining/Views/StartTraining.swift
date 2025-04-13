@@ -115,7 +115,7 @@ struct StartTraining: View {
                             if isTimerActive {
                                 calories = Int(
                                     startTrainingViewModel.heartRateSimulator.calculateCalories(
-                                        weight: StartTrainingViewModel.user != nil ? UserDefaultsUtils.user!.weight : 70,
+                                        weight: startTrainingViewModel.user != nil ? startTrainingViewModel.user!.weight : 70,
                                         elapsedTime: TimeInterval(
                                             1
                                         )
