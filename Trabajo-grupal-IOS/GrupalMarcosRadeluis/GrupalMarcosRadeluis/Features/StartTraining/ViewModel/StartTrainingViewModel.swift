@@ -13,12 +13,18 @@ class StartTrainingViewModel {
     var motionManager: MotionManager
     var heartRateSimulator: HeartRateSimulator
     var trainingType: TrainingType
+    
+    private let localPersistenceService = LocalPersistenceService.shared
+    let user: User?
+    let appSetting: AppSettings?
 
     init(trainingType: TrainingType) {
         self.trainingType = trainingType
         self.heartRateSimulator = HeartRateSimulator(trainingType: trainingType)
         self.motionManager = MotionManager()
         self.locationManager = LocationManager()
+        self.user = localPersistenceService.getUser()
+        self.appSetting = localPersistenceService.getAppSettings()
     }
     
     func getAverageSpeed() -> Double {
@@ -43,21 +49,24 @@ class StartTrainingViewModel {
             return nil
         }
         
-        let training = Training(
-            id: UUID(),
-            type: trainingType,
-            date: Date(),
-            route: routeJSON,
-            averageSpeed: getAverageSpeed(),
-            averageIntensity: getAverageIntensity(),
-            averageHeartRate: getAverageHeartRate(),
-            distance: motionManager.getDistance(),
-            calories: heartRateSimulator.getTotalCalories(),
-            steps: motionManager.getSteps(),
-            trainingTime: elapsedTime)
-        if UserDefaultsUtils.addTraining(training: training){
+        let training = Training()
+        training.id = UUID()
+        training.trainingType = trainingType.localized
+        training.date = Date()
+        training.route = routeJSON
+        training.averageSpeed = getAverageSpeed()
+        training.averageIntensity = getAverageIntensity()
+        training.averageHeartRate = Int16(getAverageHeartRate())
+        training.distance = motionManager.getDistance()
+        training.calories = Int16(heartRateSimulator.getTotalCalories())
+        training.steps = Int16(motionManager.getSteps())
+        training.trainingTime = Int32(elapsedTime)
+        
+        if(user != nil && user?.email != nil){
+            localPersistenceService.saveTraining(forEmail: self.user!.email!, training: training)
             return training.id
         }
+        
         return nil
     }
 }

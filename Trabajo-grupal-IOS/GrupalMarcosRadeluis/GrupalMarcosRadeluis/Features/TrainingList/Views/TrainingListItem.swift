@@ -13,9 +13,9 @@ struct TrainingListItem: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(training.type.localized)
+                Text(training.trainingType ?? "")
                     .font(.headline)
-                Text(formatDate(training.date))
+                Text(formatDate(training.date ?? Date()))
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 Text("\(training.distance, specifier: "%.2f") km")
@@ -25,7 +25,7 @@ struct TrainingListItem: View {
             Spacer()
             
             VStack {
-                Text(formatTrainingTime(training.trainingTime))
+                Text(formatTrainingTime(Int(training.trainingTime)))
                     .font(.subheadline)
                     .foregroundColor(.blue)
                 
@@ -66,6 +66,6 @@ struct TrainingListItem: View {
     }
 }
 
-#Preview {
-    TrainingListItem(training: Training(id: UUID(), type: .INTENSE, date: Date(), route: "", averageSpeed: 5.5, averageIntensity: 67, averageHeartRate: 89, distance: 6.76, calories: 546, steps: 34534, trainingTime: 2345))
-}
+/*#Preview {
+    TrainingListItem(training: Training)
+}*/

@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct SignUpUser: View {
+    let signUpUserVM = SignUpUserViewModel()
     
     @Binding var navigationPath: NavigationPath
-    @State private var user: User = User(
-        name: "",
-        age: 0,
-        weight: 0,
-        email: ""
-    )
+    @State private var user: User
     @State private var nameIsValid: Bool = true
     @State private var ageIsValid: Bool = true
     @State private var weightIsValid: Bool = true
@@ -39,10 +35,10 @@ struct SignUpUser: View {
     }
     
     func validateFields() {
-        nameIsValid = !user.name.isEmpty
+        nameIsValid = ((user.name?.isEmpty) != nil)
         ageIsValid = user.age > 0 && user.age <= 150
         weightIsValid = user.weight > 0
-        emailIsValid = isValidEmail(user.email)
+        emailIsValid = isValidEmail(user.email ?? "")
     }
     
     func isFormValid() -> Bool {
@@ -153,10 +149,10 @@ struct SignUpUser: View {
                     .foregroundStyle(.primary)
                     
                     Button(action: {
-                        let result = UserDefaultsUtils.saveUser(userFunc: user)
+                        let result = signUpUserVM.saveUser(userFunc: user)
                         if result {
                             dataSavedSuccessfully = true
-                            UserDefaultsUtils.loadUser()
+                            signUpUserVM.loadUser()
                         } else {
                             dataSavedFailed = true
                         }
@@ -209,9 +205,9 @@ struct SignUpUser: View {
         }
         .alert("There was an error saving data", isPresented: $dataSavedFailed) { }
         .task {
-            UserDefaultsUtils.loadUser()
-            if UserDefaultsUtils.user != nil {
-                user = UserDefaultsUtils.user!
+            signUpUserVM.loadUser()
+            if signUpUserVM.user != nil {
+                user = signUpUserVM.user!
                 validateFields()
             }else{
                 validateFields()

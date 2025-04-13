@@ -13,6 +13,8 @@ struct Menu: View {
     @State private var navigateToCheckTrainings: Bool = false
     @State private var isUserRegistered: Bool = false
     @State private var showSideMenu: Bool = false
+    
+    private var menuVM = MenuViewModel()
 
     var body: some View {
         ZStack {
@@ -67,9 +69,7 @@ struct Menu: View {
             SideMenu(navigationPath: $navigationPath, showSideMenu: $showSideMenu, isUserRegistered: $isUserRegistered)
         }
         .task {
-            UserDefaultsUtils.loadUser()
-            isUserRegistered = UserDefaultsUtils.user != nil
-            UserDefaultsUtils.loadSettings()
+            isUserRegistered = menuVM.user != nil
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -87,6 +87,6 @@ struct Menu: View {
     }
 }
 
-#Preview {
+/*#Preview {
     Menu(navigationPath: .constant(NavigationPath()))
-}
+}*/
