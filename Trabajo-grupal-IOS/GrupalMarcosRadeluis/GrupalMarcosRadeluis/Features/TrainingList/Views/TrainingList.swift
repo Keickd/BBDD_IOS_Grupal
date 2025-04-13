@@ -31,7 +31,7 @@ struct TrainingList: View {
             } else {
                 List {
                     ForEach(trainingList) { training in
-                        NavigationLink(destination: CheckTraining(idTraining: training.id, navigationPath: $navigationPath)) {
+                        NavigationLink(destination: CheckTraining(idTraining: training.id!, navigationPath: $navigationPath)) {
                             TrainingListItem(training: training)
                             .padding(.vertical, 5)
                         }
@@ -51,9 +51,12 @@ struct TrainingList: View {
         
         let trainingId = trainingList[index].id
         
-        if (trainingListViewModel.deleteTraining(idTraining: trainingId)) {
-            trainingList = trainingListViewModel.getTrainings()
+        if (trainingId != nil) {
+            if (trainingListViewModel.deleteTraining(idTraining: trainingId!)) {
+                trainingList = trainingListViewModel.getTrainings()
+            }
         }
+       
     }
 }
 
