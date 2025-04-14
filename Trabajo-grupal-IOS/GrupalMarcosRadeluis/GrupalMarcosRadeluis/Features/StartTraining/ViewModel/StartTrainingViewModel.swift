@@ -17,6 +17,17 @@ class StartTrainingViewModel {
     private let localPersistenceService = LocalPersistenceService.shared
     let user: User?
     let appSetting: AppSettings?
+    
+    var id = UUID()
+    var date = Date()
+    var route = ""
+    var averageSpeed = 0.0
+    var averageIntensity = 0.0
+    var averageHeartRate: Int16 = 0
+    var distance = 0.0
+    var calories: Int16 = 0
+    var steps: Int16 = 0
+    var trainingTime: Int32 = 0
 
     init(trainingType: TrainingType) {
         self.trainingType = trainingType
@@ -49,22 +60,9 @@ class StartTrainingViewModel {
             return nil
         }
         
-        let training = Training()
-        training.id = UUID()
-        training.trainingType = trainingType.localized
-        training.date = Date()
-        training.route = routeJSON
-        training.averageSpeed = getAverageSpeed()
-        training.averageIntensity = getAverageIntensity()
-        training.averageHeartRate = Int16(getAverageHeartRate())
-        training.distance = motionManager.getDistance()
-        training.calories = Int16(heartRateSimulator.getTotalCalories())
-        training.steps = Int16(motionManager.getSteps())
-        training.trainingTime = Int32(elapsedTime)
-        
         if(user != nil && user?.email != nil){
-            localPersistenceService.saveTraining(forEmail: self.user!.email!, training: training)
-            return training.id
+            localPersistenceService.saveTraining(forEmail: self.user!.email!, id: id,trainingType:  trainingType.rawValue, date: date, route: routeJSON, averageSpeed: averageSpeed, averageIntensity: averageIntensity, averageHeartRate: averageHeartRate, distance: distance, calories: calories, steps: steps, trainingTime: trainingTime)
+            return id
         }
         
         return nil

@@ -82,27 +82,39 @@ final class LocalPersistenceService {
         user?.trainings = NSSet(array: getTrainings())
     }
 
-    func saveTraining(forEmail email: String, training: Training) {
+    func saveTraining(
+        forEmail email: String,
+        id: UUID,
+        trainingType: String,
+        date: Date,
+        route: String?,
+        averageSpeed: Double,
+        averageIntensity: Double,
+        averageHeartRate: Int16,
+        distance: Double,
+        calories: Int16,
+        steps: Int16,
+        trainingTime: Int32
+    ) {
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "email == %@", email)
         
         do {
             if let user = try context.fetch(request).first {
                 let newTraining = Training(context: context)
-                
-                newTraining.id = training.id
-                newTraining.trainingType = training.trainingType
-                newTraining.date = training.date
-                newTraining.route = training.route
-                newTraining.averageSpeed = training.averageSpeed
-                newTraining.averageIntensity = training.averageIntensity
-                newTraining.averageHeartRate = Int16(training.averageHeartRate)
-                newTraining.distance = training.distance
-                newTraining.calories = Int16(training.calories)
-                newTraining.steps = Int16(training.steps)
+                newTraining.id = id
+                newTraining.trainingType = trainingType
+                newTraining.date = date
+                newTraining.route = route
+                newTraining.averageSpeed = averageSpeed
+                newTraining.averageIntensity = averageIntensity
+                newTraining.averageHeartRate = averageHeartRate
+                newTraining.distance = distance
+                newTraining.calories = calories
+                newTraining.steps = steps
+                newTraining.trainingTime = trainingTime
                 
                 user.addToTrainings(newTraining)
-
                 saveContext()
                 print("Entrenamiento guardado correctamente")
             } else {
