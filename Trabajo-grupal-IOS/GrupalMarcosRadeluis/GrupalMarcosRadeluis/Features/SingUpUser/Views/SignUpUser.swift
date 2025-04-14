@@ -111,9 +111,9 @@ struct SignUpUser: View {
 
                     LabeledContent("Weight") {
                         TextField("Enter your weight", text: Binding(
-                            get: { weight > 0 ? String(format: "%.1f", weight) : "" },
+                            get: { weight > 0 ? String(format: "%.1f", weight) : "0.0" },
                             set: { newValue in
-                                if let weightVar = Double(newValue), weight > 0 {
+                                if let weightVar = Double(newValue), weightVar > 0 {
                                     weight = weightVar
                                     weightIsValid = true
                                 } else {
@@ -162,7 +162,13 @@ struct SignUpUser: View {
                     .foregroundStyle(.primary)
                     
                     Button(action: {
-                        let result = signUpUserVM.addUser(name: name, age: age, weight: weight, email: email)
+                        var result: Bool = false
+                        if(user != nil){
+                            result = signUpUserVM.updateUser(name: name, age: age, weight: weight, email: email)
+                        }else{
+                            result = signUpUserVM.addUser(name: name, age: age, weight: weight, email: email)
+                        }
+                       
                         if result {
                             dataSavedSuccessfully = true
                             //signUpUserVM.getUSer()
