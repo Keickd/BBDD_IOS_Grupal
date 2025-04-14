@@ -174,7 +174,7 @@ final class LocalPersistenceService {
         appSettings = getAppSettings()
     }
     
-    func saveAppSettings(alertSoundId: Int16) {
+    func saveAppSettings(alertSoundId: Int16) throws {
         let request: NSFetchRequest<AppSettings> = AppSettings.fetchRequest()
         
         do {

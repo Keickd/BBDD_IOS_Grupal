@@ -8,12 +8,13 @@
 import Foundation
 
 class TrainingListViewModel {
+    private let localPersistenceService = LocalPersistenceService.shared
     
     func getTrainings() -> [Training] {
-        return UserDefaultsUtils.user?.trainings ?? []
+        return localPersistenceService.getTrainings()
     }
     
     func deleteTraining(idTraining: UUID) -> Bool{
-        return UserDefaultsUtils.deleteTraining(trainingId: idTraining)
+        return localPersistenceService.deleteTraining(id: idTraining)
     }
 }

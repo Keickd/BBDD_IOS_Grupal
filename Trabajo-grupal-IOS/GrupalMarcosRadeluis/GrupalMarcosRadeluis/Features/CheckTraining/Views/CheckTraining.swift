@@ -72,16 +72,16 @@ struct CheckTraining: View {
     
     func loadTrainingData() {
         if let training = checkTrainingViewModel.training {
-            self.trainingType = training.type.localized
-            self.calories = training.calories
+            self.trainingType = training.trainingType!
+            self.calories = Int(training.calories)
             self.distance = training.distance
-            self.elapsedTime = training.trainingTime
-            self.heartRate = training.averageHeartRate
+            self.elapsedTime = Int(training.trainingTime)
+            self.heartRate = Int(training.averageHeartRate)
             self.intensity = training.averageIntensity
             self.speed = training.averageSpeed
-            self.steps = training.steps
+            self.steps = Int(training.steps)
             
-            if let coordinates = training.getRouteCoordinates(), !coordinates.isEmpty {
+            if let coordinates = checkTrainingViewModel.getRouteCoordinates(), !coordinates.isEmpty {
                 self.routeCoordinates = coordinates.map { IdentifiableCoordinate(coordinate: $0) }
                 self.region = MKCoordinateRegion(
                     center: coordinates.first!,
