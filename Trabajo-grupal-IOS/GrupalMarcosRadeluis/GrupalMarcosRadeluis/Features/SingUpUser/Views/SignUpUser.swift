@@ -11,7 +11,13 @@ struct SignUpUser: View {
     let signUpUserVM = SignUpUserViewModel()
     
     @Binding var navigationPath: NavigationPath
-    @State private var user: User
+    @State private var user: User?
+    
+    @State private var name: String = ""
+    @State private var age: Int16 = 0
+    @State private var weight: Double = 0
+    @State private var email: String = ""
+    
     @State private var nameIsValid: Bool = true
     @State private var ageIsValid: Bool = true
     @State private var weightIsValid: Bool = true
@@ -35,10 +41,10 @@ struct SignUpUser: View {
     }
     
     func validateFields() {
-        nameIsValid = ((user.name?.isEmpty) != nil)
-        ageIsValid = user.age > 0 && user.age <= 150
-        weightIsValid = user.weight > 0
-        emailIsValid = isValidEmail(user.email ?? "")
+        nameIsValid = (!name.isEmpty)
+        ageIsValid = age > 0 && age <= 150
+        weightIsValid = weight > 0
+        emailIsValid = isValidEmail(email)
     }
     
     func isFormValid() -> Bool {
@@ -48,6 +54,7 @@ struct SignUpUser: View {
     init(navigationPath: Binding<NavigationPath>, userWasRegistered: Binding<Bool>) {
         self._navigationPath = navigationPath
         self._userWasRegistered = userWasRegistered
+        self.user = signUpUserVM.user
     }
 
     var body: some View {
@@ -58,59 +65,63 @@ struct SignUpUser: View {
             Form {
                 Section {
                     LabeledContent("Name") {
-                        TextField("Enter your name", text: $user.name)
-                            .onChange(of: user.name, initial: false, {
-                                nameWasEdited = true
-                                validateFields()
-                            })
-                            .font(.title3)
-                            .multilineTextAlignment(.trailing)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(
-                                        nameWasEdited && !nameIsValid ? Color("ErrorColor") : Color.clear,
-                                        lineWidth: 1
-                                    )
-                            )
+                        TextField("Enter your name", text: Binding(
+                            get: { name },
+                            set: { name = $0 }
+                        ))
+                        .onChange(of: name, initial: false, {
+                            nameWasEdited = true
+                            validateFields()
+                        })
+                        .font(.title3)
+                        .multilineTextAlignment(.trailing)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(
+                                    nameWasEdited && !nameIsValid ? Color("ErrorColor") : Color.clear,
+                                    lineWidth: 1
+                                )
+                        )
                     }
                     .font(.title2)
                     .foregroundStyle(.primary)
                     
                     LabeledContent("Age") {
                         TextField("Enter your age", text: Binding(
-                            get: { user.age == 0 ? "" : "\(user.age)" },
-                            set: { user.age = Int($0) ?? 0 }
-                            ))
-                            .keyboardType(.numberPad)
-                            .onChange(of: user.age, initial: false, {
+                            get: { age == 0 ? "" : "\(age)" },
+                            set: {
+                                age = Int16($0) ?? 0
                                 ageWasEdited = true
                                 validateFields()
-                            })
-                            .font(.title3)
-                            .multilineTextAlignment(.trailing)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(
-                                        ageWasEdited && !ageIsValid ? Color("ErrorColor") : Color.clear,
-                                        lineWidth: 1
-                                    )
-                            )
+                            }
+                        ))
+                        .keyboardType(.numberPad)
+                        .font(.title3)
+                        .multilineTextAlignment(.trailing)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(
+                                    ageWasEdited && !ageIsValid ? Color("ErrorColor") : Color.clear,
+                                    lineWidth: 1
+                                )
+                        )
                     }
                     .font(.title2)
                     .foregroundStyle(.primary)
 
                     LabeledContent("Weight") {
                         TextField("Enter your weight", text: Binding(
-                            get: { user.weight > 0 ? String(format: "%.1f", user.weight) : "" },
+                            get: { weight > 0 ? String(format: "%.1f", weight) : "" },
                             set: { newValue in
-                                if let weight = Double(newValue), weight > 0 {
-                                    user.weight = weight
+                                if let weightVar = Double(newValue), weight > 0 {
+                                    weight = weightVar
                                     weightIsValid = true
                                 } else {
-                                    user.weight = 0
+                                    weight = 0
                                     weightIsValid = false
                                 }
                                 weightWasEdited = true
+                                validateFields()
                             }
                         ))
                         .keyboardType(.decimalPad)
@@ -124,35 +135,37 @@ struct SignUpUser: View {
                                 )
                         )
                     }
-
                     .font(.title2)
                     .foregroundStyle(.primary)
 
                     LabeledContent("Email") {
-                        TextField("Enter your email", text: $user.email)
-                            .onChange(of: user.email, initial: false, {
-                                emailWasEdited = true
-                                validateFields()
-                            })
-                            .font(.title3)
-                            .keyboardType(.emailAddress)
-                            .multilineTextAlignment(.trailing)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(
-                                        emailWasEdited && !emailIsValid ? Color("ErrorColor") : Color.clear,
-                                        lineWidth: 1
-                                    )
-                            )
+                        TextField("Enter your email", text: Binding(
+                            get: { email },
+                            set: { email = $0 }
+                        ))
+                        .onChange(of: email, initial: false, {
+                            emailWasEdited = true
+                            validateFields()
+                        })
+                        .font(.title3)
+                        .keyboardType(.emailAddress)
+                        .multilineTextAlignment(.trailing)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(
+                                    emailWasEdited && !emailIsValid ? Color("ErrorColor") : Color.clear,
+                                    lineWidth: 1
+                                )
+                        )
                     }
                     .font(.title2)
                     .foregroundStyle(.primary)
                     
                     Button(action: {
-                        let result = signUpUserVM.saveUser(userFunc: user)
+                        let result = signUpUserVM.addUser(name: name, age: age, weight: weight, email: email)
                         if result {
                             dataSavedSuccessfully = true
-                            signUpUserVM.loadUser()
+                            //signUpUserVM.getUSer()
                         } else {
                             dataSavedFailed = true
                         }
@@ -205,9 +218,13 @@ struct SignUpUser: View {
         }
         .alert("There was an error saving data", isPresented: $dataSavedFailed) { }
         .task {
-            signUpUserVM.loadUser()
+            
             if signUpUserVM.user != nil {
                 user = signUpUserVM.user!
+                name = user!.name!
+                age = user!.age
+                weight = user!.weight
+                email = user!.email!
                 validateFields()
             }else{
                 validateFields()

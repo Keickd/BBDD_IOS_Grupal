@@ -15,6 +15,10 @@ struct Menu: View {
     @State private var showSideMenu: Bool = false
     
     private var menuVM = MenuViewModel()
+    
+    init(navigationPath: Binding<NavigationPath>) {
+            self._navigationPath = navigationPath
+        }
 
     var body: some View {
         ZStack {

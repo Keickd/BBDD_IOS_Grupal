@@ -10,19 +10,28 @@ import Foundation
 class SignUpUserViewModel{
     private let localPersistenceService = LocalPersistenceService.shared
     
-    var user: User
+    var user: User?
+    var name: String?
+    var age: Int16?
+    var weight: Double?
+    var email: String?
     
     init() {
-        self.user = localPersistenceService.getUser() ?? User()
+        self.user = getUSer()
     }
     
     
-    func addUser(user: User) {
+    func addUser(name: String, age: Int16, weight: Double, email: String) -> Bool {
         localPersistenceService.saveUser(
-            name: user.name!,
-            age: user.age,
-            weight: user.weight,
-            email: user.email!
+            name: name,
+            age: age,
+            weight: weight,
+            email: email
         )
+        return true
+    }
+    
+    func getUSer() -> User? {
+        return localPersistenceService.getUser()
     }
 }
