@@ -7,6 +7,8 @@ struct Sound: Identifiable, Hashable, Codable {
 }
 
 struct Settings: View {
+    @StateObject private var viewModel = SettingsViewModel()
+    
     let sounds: [Sound] = [
         Sound(name: "bidibun", id: 1005),
         Sound(name: "banban", id: 1006),
@@ -17,8 +19,6 @@ struct Settings: View {
     @State private var selectedSound: Sound?
     @State private var didError = false
     @State private var playSound = false
-    
-    private var localPersistence = LocalPersistenceService.shared
     
     var body: some View {
         ZStack{
@@ -33,10 +33,10 @@ struct Settings: View {
                 .onChange(of: selectedSound) {
                     if let soundID = selectedSound?.id {
                         if playSound {
-                            let oldSoundId = localPersistence.appSettings?.alertSoundId
+                            let oldSoundId = viewModel.settings?.alertSoundId
                             
                             do {
-                                try localPersistence.saveAppSettings(alertSoundId: Int16(soundID))
+                                try viewModel.saveSettings(alertSoundId: soundID)
                                 AudioServicesPlayAlertSound(SystemSoundID(soundID))
                             } catch {
                                 didError = true
@@ -57,9 +57,19 @@ struct Settings: View {
                 Text("There was an error saving")
             }
         }
+        .task {
+           
+        }
         .onAppear{
             playSound = false
-            self.selectedSound = sounds.first( where: {$0.id == localPersistence.appSettings?.alertSoundId ?? 1005})
+            
+            let settings = viewModel.settings
+             if let settings = settings {
+                 let soundId = settings.alertSoundId
+                 selectedSound = sounds.first(where: { $0.id == soundId })
+             }else{
+                 selectedSound = sounds.first
+             }
         }
     }
 }
