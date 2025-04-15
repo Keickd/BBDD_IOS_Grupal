@@ -8,12 +8,12 @@
 import Foundation
 
 class MenuViewModel {
-    let user: User?
+    let user: User? = nil
     
     private let localPersistenceService = LocalPersistenceService.shared
     
-    init() {
-        self.user = localPersistenceService.getUser()
+    func getUser() -> User? {
+        return localPersistenceService.getUser()
     }
     
     func getSettings() -> AppSettings? {

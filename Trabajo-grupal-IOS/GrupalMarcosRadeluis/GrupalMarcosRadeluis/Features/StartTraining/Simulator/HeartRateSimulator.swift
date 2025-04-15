@@ -86,7 +86,7 @@ class HeartRateSimulator {
         return intensityValues.reduce(0, +) / Double(intensityValues.count)
     }
     
-    func getAverageHeartRate() -> Int {
-        return Int(heartRateValues.reduce(0, +)) / Int(heartRateValues.count)
+    func getAverageHeartRate() -> Int16 {
+        return Int16(Int(heartRateValues.reduce(0, +)) / Int(heartRateValues.count))
     }
 }

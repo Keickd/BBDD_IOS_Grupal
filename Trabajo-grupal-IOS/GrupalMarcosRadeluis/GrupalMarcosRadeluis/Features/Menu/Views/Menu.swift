@@ -73,7 +73,7 @@ struct Menu: View {
             SideMenu(navigationPath: $navigationPath, showSideMenu: $showSideMenu, isUserRegistered: $isUserRegistered)
         }
         .task {
-            isUserRegistered = menuVM.user != nil
+            isUserRegistered = menuVM.getUser() != nil
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

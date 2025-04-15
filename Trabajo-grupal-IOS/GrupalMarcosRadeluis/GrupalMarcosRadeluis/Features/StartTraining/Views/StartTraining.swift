@@ -174,8 +174,12 @@ struct StartTraining: View {
                         secondaryButton: .default(Text("Save")) {
                             DispatchQueue.global(qos: .userInitiated).async {
                                 stopTrackingData()
-
-                                let id = startTrainingViewModel.saveTraining(trainingType: trainingType, elapsedTime: elapsedTime)
+                                
+                                let averageSpeed = startTrainingViewModel.motionManager.getAverageSpeed()
+                                let averageHeartRate = startTrainingViewModel.heartRateSimulator.getAverageHeartRate()
+                                let averageIntensity = startTrainingViewModel.heartRateSimulator.getAverageIntensity()
+                                
+                                let id = startTrainingViewModel.saveTraining(trainingType: trainingType, date: Date(), averageSpeed: averageSpeed, averageIntensity: averageIntensity, averageHeartRate: averageHeartRate, distance: distance, calories: Int16(calories), steps: Int16(steps), trainingTime: Int32(elapsedTime))
 
                                 DispatchQueue.main.async {
                                     showAlertSaveTraining = false

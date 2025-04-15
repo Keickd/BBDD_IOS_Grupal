@@ -196,5 +196,111 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95A2A806-407A-4998-B59F-D3139688378D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GrupalMarcosRadeluis/Features/StartTraining/ViewModel/StartTrainingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "saveTraining(trainingType:date:averageSpeed:averageIntensity:averageHeartRate:distance:calories:steps:trainingTime:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BF9E71D0-71DE-449E-8042-33DF8BFD039E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GrupalMarcosRadeluis/Features/Menu/Views/Menu.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86CF6FBA-D8E0-4A29-8904-9C4C74E740D9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GrupalMarcosRadeluis/Features/Menu/Views/Menu.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "86CF6FBA-D8E0-4A29-8904-9C4C74E740D9 - 9ea39d0dd72c70fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_App.Menu.body.getter : some"
+                  moduleName = "Fitness App.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keickd/Desktop/Uni/BBDD%20IOS/BBDD_IOS_Grupal/Trabajo-grupal-IOS/GrupalMarcosRadeluis/GrupalMarcosRadeluis/Features/Menu/Views/Menu.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75">
+               </Location>
+               <Location
+                  uuid = "86CF6FBA-D8E0-4A29-8904-9C4C74E740D9 - 414c100cc27bdc0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Sendable () async -&gt; () in Fitness_App.Menu.body.getter : some"
+                  moduleName = "Fitness App.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keickd/Desktop/Uni/BBDD%20IOS/BBDD_IOS_Grupal/Trabajo-grupal-IOS/GrupalMarcosRadeluis/GrupalMarcosRadeluis/Features/Menu/Views/Menu.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75">
+               </Location>
+               <Location
+                  uuid = "86CF6FBA-D8E0-4A29-8904-9C4C74E740D9 - bfb6b9a2bfdc626a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Fitness_App.Menu.body.getter : some"
+                  moduleName = "Fitness App.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keickd/Desktop/Uni/BBDD%20IOS/BBDD_IOS_Grupal/Trabajo-grupal-IOS/GrupalMarcosRadeluis/GrupalMarcosRadeluis/Features/Menu/Views/Menu.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75">
+               </Location>
+               <Location
+                  uuid = "86CF6FBA-D8E0-4A29-8904-9C4C74E740D9 - 9ea39d0dd72c70fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_App.Menu.body.getter : some"
+                  moduleName = "Fitness App.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keickd/Desktop/Uni/BBDD%20IOS/BBDD_IOS_Grupal/Trabajo-grupal-IOS/GrupalMarcosRadeluis/GrupalMarcosRadeluis/Features/Menu/Views/Menu.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -17,8 +17,9 @@ class StartTrainingViewModel {
     private let localPersistenceService = LocalPersistenceService.shared
     let user: User?
     let appSetting: AppSettings?
-    
     var id = UUID()
+    /*
+    
     var date = Date()
     var route = ""
     var averageSpeed = 0.0
@@ -27,7 +28,7 @@ class StartTrainingViewModel {
     var distance = 0.0
     var calories: Int16 = 0
     var steps: Int16 = 0
-    var trainingTime: Int32 = 0
+    var trainingTime: Int32 = 0*/
 
     init(trainingType: TrainingType) {
         self.trainingType = trainingType
@@ -46,11 +47,11 @@ class StartTrainingViewModel {
         return heartRateSimulator.getAverageIntensity()
     }
     
-    func getAverageHeartRate() -> Int {
+    func getAverageHeartRate() -> Int16 {
         return heartRateSimulator.getAverageHeartRate()
     }
 
-    func saveTraining(trainingType: TrainingType, elapsedTime: Int) -> UUID?{
+    func saveTraining(trainingType: TrainingType, date: Date, averageSpeed: Double, averageIntensity: Double, averageHeartRate: Int16, distance: Double, calories: Int16, steps: Int16, trainingTime: Int32) -> UUID?{
         let coordinates = locationManager.locations.map { location in
             ["latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]
         }
