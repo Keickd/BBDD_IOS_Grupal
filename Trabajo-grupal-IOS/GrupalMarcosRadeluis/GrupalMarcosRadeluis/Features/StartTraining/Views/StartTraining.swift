@@ -250,6 +250,8 @@ struct StartTraining: View {
     func emitSound() {
         if let soundId = startTrainingViewModel.appSetting?.alertSoundId {
             AudioServicesPlayAlertSound(UInt32(soundId))
+        }else{
+            AudioServicesPlayAlertSound(UInt32(1005))
         }
         
     }
